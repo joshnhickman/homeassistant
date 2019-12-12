@@ -56,7 +56,7 @@ device_tracker:
 remote:
   - platform: harmony
     name: harmony
-    host: 192.168.0.109
+    host: 192.168.1.5
 
 light:
   - platform: group

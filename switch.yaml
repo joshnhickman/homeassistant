@@ -1,7 +1,7 @@
 - platform: wake_on_lan
   name: wake computer
   mac: "00-D8-61-0E-16-64"
-  host: 192.168.0.101
+  host: 192.168.1.2
 - platform: template
   switches:
     receive_chromecast:
