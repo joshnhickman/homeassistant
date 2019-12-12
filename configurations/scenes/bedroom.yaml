@@ -1,0 +1,33 @@
+- name: bedroom sunrise 1
+  entities:
+    light.bedroom:
+      state: on
+      color_name: red
+      brightness: 20
+      transition: 1800
+- name: bedroom sunrise 2
+  entities:
+    light.bedroom:
+      state: on
+      color_name: orange
+      brightness: 100
+      transition: 1800
+- name: bedroom sunset 1
+  entities:
+    light.bedroom:
+      state: on
+      color_name: blue
+      brightness: 100
+      transition: 1800
+- name: bedroom sunset 2
+  entities:
+    light.bedroom:
+      state: on
+      color_name: red
+      brightness: 500
+      transition: 1800
+- name: bedroom off
+  entities:
+    light.bedroom:
+      state: off
+      transition: 1800

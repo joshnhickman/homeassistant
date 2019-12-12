@@ -1,0 +1,94 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+http:
+  server_port: 443
+#  ssl_certificate: /config/certificate.pem
+#  ssl_key: /config/privkey.pem
+  ssl_certificate: /letsencrypt/live/joshnhickman.duckdns.org/fullchain.pem
+  ssl_key: /letsencrypt/live/joshnhickman.duckdns.org/privkey.pem
+
+google_assistant:
+  project_id: homeassistant-d31d5
+  service_account:
+    private_key: !secret google_private_key
+    client_email: !secret google_client_email
+  report_state: true
+  exposed_domains:
+    - switch
+    - light
+    - scene
+
+wake_on_lan:
+
+group: !include groups.yaml
+automation: !include_dir_merge_list configurations/automations
+scene: !include_dir_merge_list configurations/scenes
+script: !include scripts.yaml
+switch: !include switch.yaml
+
+homeassistant:
+  customize: !include customize.yaml
+
+recorder:
+  include:
+    domains:
+      - sensor
+      - person
+
+device_tracker:
+  - platform: bluetooth_le_tracker
+    new_device_defaults:
+      track_new_devices: true
+  - platform: bluetooth_tracker
+    new_device_defaults:
+      track_new_devices: true
+
+remote:
+  - platform: harmony
+    name: harmony
+    host: 192.168.0.109
+
+light:
+  - platform: group
+    name: closet
+    entities:
+      - light.closet_1
+      - light.closet_2
+  - platform: group
+    name: laundry
+    entities:
+      - light.laundry_1
+      - light.laundry_2
+  - platform: group
+    name: screen
+    entities:
+      - light.screen_right
+      - light.screen_left
+  - platform: group
+    name: living
+    entities:
+      - light.desk
+      - light.couch
+      - light.screen_right
+      - light.screen_left
+  - platform: group
+    name: kitchen
+    entities:
+      - light.overhead
+      - light.counter
+      - light.cupboard
+  - platform: group
+    name: bedroom
+    entities:
+      - light.bed
+      - light.mirror

@@ -1,0 +1,20 @@
+binary_sensor.smartthings_multiv4_010636c0_1_1280:
+  device_class: door
+binary_sensor.centralite_3321_s_0bbb45f5_1_1280:
+  device_class: door
+binary_sensor.centralite_3321_s_0bbb19eb_1_1280:
+  device_class: door
+binary_sensor.bathroom_door:
+  device_class: door
+binary_sensor.laundry_door:
+  device_class: door
+binary_sensor.whiskey_door:
+  device_class: opening
+binary_sensor.closet_door:
+  device_class: door
+sensor.living_room_humidity:
+  device_class: humidity
+binary_sensor.front_door:
+  device_class: door
+light.outlet:
+  device_type: plug

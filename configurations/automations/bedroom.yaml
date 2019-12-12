@@ -1,0 +1,48 @@
+- id: bedroom_sunrise_1
+  alias: bedroom sunrise 1
+  trigger:
+    - platform: time
+      at: "05:30"
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.bedroom_sunrise_1
+- id: bedroom_sunrise_2
+  alias: bedroom sunrise 2
+  trigger:
+    - platform: time
+      at: "06:30"
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.bedroom_sunrise_2
+- id: bedroom_sunset_1
+  alias: bedroom sunset 1
+  trigger:
+    - platform: time
+      at: "21:00"
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.bedroom_sunset_1
+- id: bedroom_sunset_2
+  alias: bedroom sunset 2
+  trigger:
+    - platform: time
+      at: "22:00"
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.bedroom_sunset_2
+- id: bedroom_sunset_off
+  alias: bedroom sunset off
+  trigger:
+    - platform: time
+      at: "09:00"
+    - platform: time
+      at: "23:00"
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.bedroom_off
+

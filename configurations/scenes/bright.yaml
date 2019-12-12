@@ -1,0 +1,12 @@
+- name: living bright
+  entities:
+    light.living:
+      state: on
+      color_temp: 300
+      brightness: 255
+- name: bedroom bright
+  entities:
+    light.bedroom:
+      state: on
+      color_temp: 300
+      brightness: 255

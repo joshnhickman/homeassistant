@@ -1,0 +1,9 @@
+- id: computer_on
+  alias: computer on
+  trigger:
+    - platform: state
+      entity_id: person.josh
+      to: "home"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.wake_computer

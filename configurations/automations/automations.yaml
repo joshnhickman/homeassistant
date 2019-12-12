@@ -1,0 +1,144 @@
+- id: screen_light_off
+  alias: screen light off
+  trigger:
+    - platform: state
+      entity_id: switch.chromecast_video
+      to: 'on'
+    - platform: state
+      entity_id: switch.nintendo_switch
+      to: 'on'
+    - platform: state
+      entity_id: switch.ps4
+      to: 'on'
+    - platform: state
+      entity_id: switch.computer
+      to: 'on'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.screen
+
+- id: closet_light_on
+  alias: closet light on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.closet_door
+      to: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.closet
+- id: closet_light_off
+  alias: closet light off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.closet_door
+      to: 'off'
+    - platform: state
+      entity_id: light.closet
+      to: 'on'
+      for: 00:10:00
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.closet
+
+- id: laundry_light_on
+  alias: laundry light on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.laundry_door
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.hall_motion
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.laundry_door
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.laundry
+- id: laundry_light_off
+  alias: laundry light off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.laundry_door
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.hall_motion
+      to: 'off'
+      for: 00:10:00
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.laundry
+
+- id: bathroom_light_on
+  alias: bathroom light on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.bathroom_motion
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.bathroom_door
+      state: 'on'
+    - condition: state
+      entity_id: light.bathroom
+      state: 'off'
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.bathroom
+        brightness: >
+          {% if is_state('sun.sun', 'below_horizon') %}
+          20
+          {% else %}
+          255
+          {% endif %}
+- id: bathroom_light_off
+  alias: bathroom light off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: 'off'
+      for: 00:00:13
+    - platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: 'on'
+      for: 00:30:00
+  condition:
+    - condition: state
+      entity_id: binary_sensor.bathroom_motion
+      state: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.bathroom
+
+- id: whiskey_light_on
+  alias: whiskey light on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.whiskey_cupboard
+      to: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.whiskey
+- id: whiskey_light_off
+  alias: whiskey light off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.whiskey_cupboard
+      to: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.whiskey
+
