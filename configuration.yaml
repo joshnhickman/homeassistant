@@ -2,18 +2,13 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
 # Text to speech
 tts:
   - platform: google_translate
 
 http:
   server_port: 443
-#  ssl_certificate: /config/certificate.pem
-#  ssl_key: /config/privkey.pem
+  base_url: https://homeassistant.joshnhickman.com
   ssl_certificate: /letsencrypt/live/homeassistant.joshnhickman.com/fullchain.pem
   ssl_key: /letsencrypt/live/homeassistant.joshnhickman.com/privkey.pem
 
