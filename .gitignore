@@ -2,6 +2,7 @@
 !.gitignore
 !*.yaml
 !*.md
+!configurations
 !configurations/*
 
 .storage

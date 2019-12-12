@@ -1,0 +1,32 @@
+- id: laundry_light_on
+  alias: laundry light on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.laundry_door
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.hall_motion
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.laundry_door
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.laundry
+- id: laundry_light_off
+  alias: laundry light off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.laundry_door
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.hall_motion
+      to: 'off'
+      for: 00:10:00
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.laundry
+

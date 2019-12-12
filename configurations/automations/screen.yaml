@@ -1,0 +1,20 @@
+- id: screen_light_off
+  alias: screen light off
+  trigger:
+    - platform: state
+      entity_id: switch.project_chromecast
+      to: 'on'
+    - platform: state
+      entity_id: switch.project_switch
+      to: 'on'
+    - platform: state
+      entity_id: switch.project_ps4
+      to: 'on'
+    - platform: state
+      entity_id: switch.project_computer
+      to: 'on'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.screen
+

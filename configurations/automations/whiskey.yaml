@@ -1,0 +1,21 @@
+- id: whiskey_light_on
+  alias: whiskey light on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.whiskey_cupboard
+      to: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.whiskey
+- id: whiskey_light_off
+  alias: whiskey light off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.whiskey_cupboard
+      to: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.whiskey
+
