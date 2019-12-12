@@ -42,6 +42,10 @@ recorder:
 
 device_tracker:
 
+frontend:
+  themes:
+    !include configurations/themes/slate.yaml
+
 remote:
   - platform: harmony
     name: harmony

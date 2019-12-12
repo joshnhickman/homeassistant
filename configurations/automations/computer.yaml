@@ -27,6 +27,7 @@
     - platform: state
       entity_id: switch.wake_computer
       to: "off"
+      for: "00:01:00"
   action:
     - service: light.turn_off
       data:
