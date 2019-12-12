@@ -14,8 +14,8 @@ http:
   server_port: 443
 #  ssl_certificate: /config/certificate.pem
 #  ssl_key: /config/privkey.pem
-  ssl_certificate: /letsencrypt/live/joshnhickman.duckdns.org/fullchain.pem
-  ssl_key: /letsencrypt/live/joshnhickman.duckdns.org/privkey.pem
+  ssl_certificate: /letsencrypt/live/homeassistant.joshnhickman.com/fullchain.pem
+  ssl_key: /letsencrypt/live/homeassistant.joshnhickman.com/privkey.pem
 
 google_assistant:
   project_id: homeassistant-d31d5
@@ -46,12 +46,6 @@ recorder:
       - person
 
 device_tracker:
-  - platform: bluetooth_le_tracker
-    new_device_defaults:
-      track_new_devices: true
-  - platform: bluetooth_tracker
-    new_device_defaults:
-      track_new_devices: true
 
 remote:
   - platform: harmony
