@@ -11,3 +11,24 @@
     - delay: '00:00:05'
     - service: switch.turn_on
       entity_id: switch.wake_computer
+- id: monitors_on
+  alias: monitors on
+  trigger:
+    - platform: state
+      entity_id: switch.wake_computer
+      to: "on"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.monitors
+- id: monitors_off
+  alias: monitors off
+  trigger:
+    - platform: state
+      entity_id: switch.wake_computer
+      to: "off"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.monitors
+

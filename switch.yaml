@@ -1,6 +1,6 @@
 - platform: wake_on_lan
   name: wake computer
-  mac_address: "00-D8-61-0E-16-64"
+  mac: "00-D8-61-0E-16-64"
   host: 192.168.0.101
 - platform: template
   switches:
