@@ -4,57 +4,67 @@
   host: 192.168.1.2
 - platform: template
   switches:
-    receive_chromecast:
-      friendly_name: receive chromecast
+    music:
+      friendly_name: music
       icon_template: 'mdi:music'
-      value_template: "{{ is_state_attr('remote.harmony', 'current_activity', 'chromecast audio') }}"
+      value_template: >
+        {{ is_state('media_player.receiver', 'on') and 
+           is_state('media_player.projector', 'off') and 
+           is_state_attr('media_player.receiver', 'source', 'CHROMECAST') }}
       turn_on:
-        service: remote.turn_on
+        service: scene.turn_on
         data:
-          entity_id: remote.harmony
-          activity: chromecast audio
-      turn_off: &harmonyoff
-        service: remote.turn_on
+          entity_id: scene.music
+      turn_off: &media_off
+        service: scene.turn_on
         data:
-          entity_id: remote.harmony
-          activity: PowerOff
-    project_chromecast:
-      friendly_name: project chromecast
+          entity_id: scene.media_off
+    video:
+      friendly_name: video
       icon_template: 'mdi:television'
-      value_template: "{{ is_state_attr('remote.harmony', 'current_activity', 'chromecast video') }}"
+      value_template: >
+        {{ is_state('media_player.receiver', 'on') and
+           is_state('media_player.projector', 'on') and
+           is_state_attr('media_player.receiver', 'source', 'CHROMECAST') }}
       turn_on:
-        service: remote.turn_on
+        service: scene.turn_on
         data:
-          entity_id: remote.harmony
-          activity: chromecast video
-      turn_off: *harmonyoff
-    project_switch:
-      friendly_name: project switch
+          entity_id: scene.video
+      turn_off: *media_off
+    switch:
+      friendly_name: switch
       icon_template: 'mdi:nintendo-switch'
-      value_template: "{{ is_state_attr('remote.harmony', 'current_activity', 'nintendo switch') }}"
+      value_template: >
+        {{ is_state('media_player.receiver', 'on') and
+           is_state('media_player.projector', 'on') and
+           is_state_attr('media_player.receiver', 'source', 'SWITCH') }}
       turn_on:
-        service: remote.turn_on
+        service: scene.turn_on
         data:
-          entity_id: remote.harmony
-          activity: nintendo switch
-      turn_off: *harmonyoff
-    project_ps4:
-      friendly_name: project ps4
+          entity_id: scene.switch
+      turn_off: *media_off
+    ps4:
+      friendly_name: ps4
       icon_template: 'mdi:playstation'
-      value_template: "{{ is_state_attr('remote.harmony', 'current_activity', 'ps4') }}"
+      value_template: >
+        {{ is_state('media_player.receiver', 'on') and
+           is_state('media_player.projector', 'on') and
+           is_state_attr('media_player.receiver', 'source', 'PS4') }}
       turn_on:
-        service: remote.turn_on
+        service: scene.turn_on
         data:
-          entity_id: remote.harmony
-          activity: ps4
-      turn_off: *harmonyoff
-    project_computer:
-      friendly_name: project computer
+          entity_id: scene.ps4
+      turn_off: *media_off
+    desktop:
+      friendly_name: desktop
       icon_template: 'mdi:desktop-classic'
-      value_template: "{{ is_state_attr('remote.harmony', 'current_activity', 'computer') }}"
+      value_template: >
+        {{ is_state('media_player.receiver', 'on') and
+           is_state('media_player.projector', 'on') and
+           is_state_attr('media_player.receiver', 'source', 'COMPUTER') }}
       turn_on:
-        service: remote.turn_on
+        service: scene.turn_on
         data:
-          entity_id: remote.harmony
-          activity: computer
-      turn_off: *harmonyoff
+          entity_id: scene.desktop
+      turn_off: *media_off
+

@@ -1,0 +1,43 @@
+- id: music_on
+  alias: music on
+  trigger:
+    - platform: state
+      entity_id: media_player.chromecast
+      from: 'off'
+    - platform: state
+      entity_id: media_player.chromecast
+      to: 'playing'
+  condition:
+    - condition: template
+      value_template: "{{ not is_state('media_player.chromecast', 'unavailable') }}"
+    - condition: state
+      entity_id: media_player.projector
+      state: 'off'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.music
+- id: music_off
+  alias: music off
+  trigger:
+    - platform: state
+      entity_id: media_player.chromecast
+      to: 'off'
+      for: '00:00:10' # turns off briefly when switching
+    - platform: state
+      entity_id: media_player.chromecast
+      to: 'idle'
+      for: '00:05:00'
+    - platform: state
+      entity_id: media_player.chromecast
+      to: 'paused'
+      for: '00:05:00'
+  condition:
+    condition: state
+    entity_id: media_player.projector
+    state: 'off'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.media_off
+
