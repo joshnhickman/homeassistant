@@ -3,6 +3,7 @@
   trigger:
     - platform: state
       entity_id: person.josh
+      from: "away"
       to: "home"
   action:
     - service: light.turn_on
