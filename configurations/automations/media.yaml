@@ -41,3 +41,18 @@
       data:
         entity_id: scene.media_off
 
+- id: ps4_on
+  alias: ps4 on
+  trigger:
+    - platform: state
+      entity_id: media_player.ps4
+      from: 'standby'
+      to: 'idle'
+  condition:
+    condition: state
+    entity_id: media_player.projector
+    state: 'off'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.ps4

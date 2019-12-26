@@ -49,7 +49,9 @@
       value_template: >
         {{ is_state('media_player.receiver', 'on') and
            is_state('media_player.projector', 'on') and
-           is_state_attr('media_player.receiver', 'source', 'PS4') }}
+           is_state_attr('media_player.receiver', 'source', 'PS4') and
+           not is_state('media_player.ps4', 'standby') and
+           not is_state('media_player.ps4', 'unknown') }}
       turn_on:
         service: scene.turn_on
         data:

@@ -98,11 +98,6 @@ frontend:
   themes:
     !include configurations/themes/slate.yaml
 
-remote:
-  - platform: harmony
-    name: harmony
-    host: 192.168.1.5
-
 light:
   - platform: group
     name: closet

@@ -6,6 +6,8 @@
       state: off
     media_player.chromecast:
       state: off
+    media_player.ps4:
+      state: off
 - name: music
   entities:
     media_player.receiver:
@@ -39,6 +41,8 @@
       source: PS4
       sound_mode: DIRECT
     media_player.projector:
+      state: on
+    media_player.ps4:
       state: on
 - name: DESKTOP
   entities:
