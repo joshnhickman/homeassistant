@@ -1,0 +1,36 @@
+esphome:
+  name: bed
+  platform: ESP8266
+  board: nodemcuv2
+  arduino_version: dev
+
+wifi:
+  ssid: "Archmore"
+  password: !secret archmore_password
+  fast_connect: true
+#  manual_ip:
+#    static_ip: 192.168.1.100
+#    gateway: 192.168.1.1
+#    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Bed Fallback Hotspot"
+    password: !secret esphome_password
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret esphome_password
+
+ota:
+  password: !secret esphome_password
+
+sensor:
+  - platform: wifi_signal
+    name: bed_wifi_signal
+    update_interval: 10s

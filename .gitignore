@@ -6,6 +6,8 @@
 !configurations/*
 !docker-compose.yml
 
+!esphome
+
 .storage
 .cloud
 .google.token
