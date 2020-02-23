@@ -11,7 +11,7 @@
     - condition: template
       value_template: "{{ not is_state('media_player.chromecast', 'unavailable') }}"
     - condition: state
-      entity_id: media_player.projector
+      entity_id: group.media
       state: 'off'
   action:
     - service: scene.turn_on
@@ -27,15 +27,15 @@
     - platform: state
       entity_id: media_player.chromecast
       to: 'idle'
-      for: '00:05:00'
+      for: '00:01:00'
     - platform: state
       entity_id: media_player.chromecast
       to: 'paused'
       for: '00:05:00'
   condition:
-    condition: state
-    entity_id: media_player.projector
-    state: 'off'
+    - condition: state
+      entity_id: switch.music
+      state: 'on'
   action:
     - service: scene.turn_on
       data:
@@ -50,7 +50,7 @@
       to: 'idle'
   condition:
     condition: state
-    entity_id: media_player.projector
+    entity_id: group.media
     state: 'off'
   action:
     - service: scene.turn_on

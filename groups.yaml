@@ -1,0 +1,16 @@
+media:
+  name: media
+  entities:
+    - switch.music
+    - switch.video
+    - switch.switch
+    - switch.ps4
+    - switch.desktop
+good_team:
+  name: good team
+  entities:
+    - person.alex
+    - person.chris
+    - person.dwight
+    - person.josh
+    - person.nathan

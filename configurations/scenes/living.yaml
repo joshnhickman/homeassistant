@@ -1,3 +1,15 @@
+- name: living bright
+  entities:
+    light.living:
+      state: on
+      color_name: white
+      brightness: 255
+- name: living normal
+  entities:
+    light.living:
+      state: on
+      color_name: orange
+      brightness: 255
 - name: living red
   entities:
     light.living:

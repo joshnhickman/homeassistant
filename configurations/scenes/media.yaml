@@ -13,7 +13,7 @@
     media_player.receiver:
       state: on
       source: CHROMECAST
-      sound_mode: MCH STEREO
+      sound_mode: 'MCH STEREO'
       volume_level: 0.5
     media_player.projector:
       state: off

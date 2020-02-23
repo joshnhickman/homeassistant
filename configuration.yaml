@@ -30,6 +30,7 @@ automation: !include_dir_merge_list configurations/automations
 scene: !include_dir_merge_list configurations/scenes
 script: !include scripts.yaml
 switch: !include switch.yaml
+sensor: !include_dir_merge_list configurations/sensors
 
 media_player:
   - platform: denonavr
@@ -121,11 +122,6 @@ light:
       - light.couch
       - light.screen_right
       - light.screen_left
-  - platform: group
-    name: kitchen
-    entities:
-      - light.overhead
-      - light.counter
       - light.cupboard
   - platform: group
     name: bedroom
