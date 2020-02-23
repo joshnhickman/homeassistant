@@ -4,6 +4,7 @@
 !*.md
 !configurations
 !configurations/*
+!docker-compose.yml
 
 .storage
 .cloud

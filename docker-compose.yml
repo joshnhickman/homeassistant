@@ -1,0 +1,19 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/raspberrypi4-homeassistant:0.105.2
+    volumes:
+      - /home/pi/homeassistant:/config
+      - /etc/letsencrypt:/letsencrypt
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB1:/dev/ttyUSB1
+    environment:
+      - TZ=America/Los_Angeles
+    restart: always
+    network_mode: host
+    logging:
+      options:
+        max-size: '200k'
+        max-file: '5'
