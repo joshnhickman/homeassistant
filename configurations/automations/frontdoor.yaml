@@ -28,3 +28,14 @@
       data:
         entity_id: light.hall
 
+- id: door_open
+  alias: door open
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door
+      to: 'on'
+      for: 00:02:00
+  action:
+    - service: notify.mobile_app_pixel_4
+      data:
+        message: 'Front door open'
