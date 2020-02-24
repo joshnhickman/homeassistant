@@ -4,30 +4,40 @@
       state: on
       color_name: red
       brightness_pct: 20
-      transition: 1800
+      transition: 900
 - name: bedroom sunrise 2
   entities:
     light.bedroom:
       state: on
       color_name: orange
       brightness_pct: 40
-      transition: 1800
+      transition: 900
+
 - name: bedroom sunset 1
   entities:
     light.bedroom:
       state: on
       color_name: blue
       brightness_pct: 50
-      transition: 1800
+      transition: 900
 - name: bedroom sunset 2
   entities:
     light.bedroom:
       state: on
       color_name: red
       brightness_pct: 20
-      transition: 1800
+      transition: 900
+
 - name: bedroom off
   entities:
     light.bedroom:
       state: off
-      transition: 1800
+      transition: 900
+
+- name: bedroom nightlight
+  entities:
+    light.underbed:
+      state: on
+      color_name: red
+      brightness_pct: 20
+      transition: 2
