@@ -1,6 +1,0 @@
-- name: movie lights
-  entities:
-    light.cupboard:
-      state: on
-      color_name: red
-      brightness: 177

@@ -28,59 +28,13 @@ google_assistant:
 wake_on_lan:
 
 group: !include groups.yaml
-automation: !include_dir_merge_list configurations/automations
-scene: !include_dir_merge_list configurations/scenes
+automation: !include_dir_merge_list conf/automations
+scene: !include_dir_merge_list conf/scenes
 script: !include scripts.yaml
-switch: !include switch.yaml
-sensor: !include_dir_merge_list configurations/sensors
-
-media_player:
-  - platform: denonavr
-    host: 192.168.1.6
-    name: receiver
-  - platform: pjlink
-    host: 192.168.1.7
-    name: projector
-  - platform: universal
-    name: media
-    children:
-      - media_player.chromecast
-      - media_player.receiver
-    commands:
-      volume_set:
-        service: media_player.volume_set
-        data_template:
-          entity_id: media_player.receiver
-          volume_level: '{{ volume_level }}'
-      volume_up:
-        service: media_player.volume_up
-        data:
-          entity_id: media_player.receiver
-      volume_down:
-        service: media_player.volume_down
-        data:
-          entity_id: media_player.receiver
-      volume_mute:
-        service: media_player.volume_mute
-        data:
-          entity_id: media_player.receiver
-      set_source:
-        service: media_player.set_source
-        data_template:
-          entity_id: media_player.receiver
-          source: '{{ source }}'
-      set_sound_mode:
-        service: media_player.set_sound_mode
-        data_template:
-          entity_id: media_player.receiver
-          sound_mode: '{{ sound_mode }}'
-    attributes:
-      is_volume_muted: media_player.receiver|is_volume_muted
-      sound_mode: media_player.receiver|sound_mode
-      sound_mode_list: media_player.receiver|sound_mode_list
-      source: media_player.receiver|source
-      source_list: media_player.receiver|source_list
-      volume_level: media_player.receiver|volume_level
+switch: !include_dir_merge_list conf/switches
+sensor: !include_dir_merge_list conf/sensors
+media_player: !include_dir_merge_list conf/media
+light: !include_dir_merge_list conf/lights
 
 homeassistant:
   customize: !include customize.yaml
@@ -99,35 +53,5 @@ device_tracker:
 
 frontend:
   themes:
-    !include configurations/themes/slate.yaml
+    !include conf/themes/slate.yaml
 
-light:
-  - platform: group
-    name: closet
-    entities:
-      - light.closet_1
-      - light.closet_2
-  - platform: group
-    name: laundry
-    entities:
-      - light.laundry_1
-      - light.laundry_2
-  - platform: group
-    name: screen
-    entities:
-      - light.screen_right
-      - light.screen_left
-  - platform: group
-    name: living
-    entities:
-      - light.desk
-      - light.couch
-      - light.screen_right
-      - light.screen_left
-      - light.cupboard
-  - platform: group
-    name: bedroom
-    entities:
-      - light.bed
-      - light.mirror
-      - light.underbed
