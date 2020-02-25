@@ -29,15 +29,6 @@ google_assistant:
 
 wake_on_lan:
 
-group: !include_dir_merge_list conf/groups
-automation: !include_dir_merge_list conf/automations
-scene: !include_dir_merge_list conf/scenes
-script: !include scripts.yaml
-switch: !include_dir_merge_list conf/switches
-sensor: !include_dir_merge_list conf/sensors
-media_player: !include_dir_merge_list conf/media
-light: !include_dir_merge_list conf/lights
-
 homeassistant:
   customize: !include customize.yaml
 
@@ -62,4 +53,13 @@ device_tracker:
 frontend:
   themes:
     !include conf/themes/slate.yaml
+
+automation: !include_dir_merge_list conf/automations
+group: !include_dir_merge_list conf/groups
+light: !include_dir_merge_list conf/lights
+media_player: !include_dir_merge_list conf/media
+scene: !include_dir_merge_list conf/scenes
+script: !include scripts.yaml
+sensor: !include_dir_merge_list conf/sensors
+switch: !include_dir_merge_list conf/switches
 
