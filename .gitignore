@@ -2,8 +2,8 @@
 !.gitignore
 !*.yaml
 !*.md
-!configurations
-!configurations/*
+!conf
+!conf/*
 !docker-compose.yml
 
 !esphome

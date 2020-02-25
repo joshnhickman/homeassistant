@@ -1,0 +1,46 @@
+- platform: denonavr
+  host: 192.168.1.6
+  name: receiver
+- platform: pjlink
+  host: 192.168.1.7
+  name: projector
+- platform: universal
+  name: media
+  children:
+    - media_player.chromecast
+    - media_player.receiver
+  commands:
+    volume_set:
+      service: media_player.volume_set
+      data_template:
+        entity_id: media_player.receiver
+        volume_level: '{{ volume_level }}'
+    volume_up:
+      service: media_player.volume_up
+      data:
+        entity_id: media_player.receiver
+    volume_down:
+      service: media_player.volume_down
+      data:
+        entity_id: media_player.receiver
+    volume_mute:
+      service: media_player.volume_mute
+      data:
+        entity_id: media_player.receiver
+    set_source:
+      service: media_player.set_source
+      data_template:
+        entity_id: media_player.receiver
+        source: '{{ source }}'
+    set_sound_mode:
+      service: media_player.set_sound_mode
+      data_template:
+        entity_id: media_player.receiver
+        sound_mode: '{{ sound_mode }}'
+  attributes:
+    is_volume_muted: media_player.receiver|is_volume_muted
+    sound_mode: media_player.receiver|sound_mode
+    sound_mode_list: media_player.receiver|sound_mode_list
+    source: media_player.receiver|source
+    source_list: media_player.receiver|source_list
+    volume_level: media_player.receiver|volume_level

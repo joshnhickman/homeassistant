@@ -1,0 +1,14 @@
+- name: all off
+  entities:
+    light.living:
+      state: off
+    light.kitchen:
+      state: off
+    light.bedroom:
+      state: off
+    light.hall:
+      state: off
+    light.closet:
+      state: off
+    light.laundry:
+      state: off

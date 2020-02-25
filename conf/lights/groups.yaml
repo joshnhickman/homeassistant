@@ -1,0 +1,29 @@
+- platform: group
+  name: closet
+  entities:
+    - light.closet_1
+    - light.closet_2
+- platform: group
+  name: laundry
+  entities:
+    - light.laundry_1
+    - light.laundry_2
+- platform: group
+  name: screen
+  entities:
+    - light.screen_right
+    - light.screen_left
+- platform: group
+  name: living
+  entities:
+    - light.desk
+    - light.couch
+    - light.screen_right
+    - light.screen_left
+    - light.cupboard
+- platform: group
+  name: bedroom
+  entities:
+    - light.bed
+    - light.mirror
+    - light.underbed

@@ -1,0 +1,60 @@
+- id: bathroom_light_on
+  alias: bathroom light on
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.bathroom_motion
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.bathroom_door
+      state: 'on'
+    - condition: state
+      entity_id: light.bathroom
+      state: 'off'
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.bathroom
+        brightness: >
+          {% if is_state('sun.sun', 'below_horizon') %}
+          20
+          {% else %}
+          255
+          {% endif %}
+- id: bathroom_light_off
+  alias: bathroom light off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: 'off'
+      for: 00:00:13
+    - platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: 'on'
+      for: 00:30:00
+  condition:
+    - condition: state
+      entity_id: binary_sensor.bathroom_motion
+      state: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.bathroom
+- id: bathroom_light_fix
+  alias: bathroom light fix
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: 'off'
+      for: 00:00:16
+  condition:
+    - condition: state
+      entity_id: binary_sensor.bathroom_motion
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.bathroom

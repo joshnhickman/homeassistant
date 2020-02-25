@@ -1,0 +1,11 @@
+- id: screen_light_off
+  alias: screen light off
+  trigger:
+    - platform: state
+      entity_id: media_player.projector
+      to: 'on'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.screen
+
