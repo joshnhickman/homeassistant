@@ -14,9 +14,9 @@
       entity_id: group.media
       state: 'off'
   action:
-    - service: scene.turn_on
+    - service: switch.toggle
       data:
-        entity_id: scene.music
+        entity_id: switch.music
 - id: music_off
   alias: music off
   trigger:
