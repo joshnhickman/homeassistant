@@ -59,7 +59,7 @@ group: !include_dir_merge_list conf/groups
 light: !include_dir_merge_list conf/lights
 media_player: !include_dir_merge_list conf/media
 scene: !include_dir_merge_list conf/scenes
-script: !include scripts.yaml
+script: !include_dir_named conf/scripts
 sensor: !include_dir_merge_list conf/sensors
 switch: !include_dir_merge_list conf/switches
 

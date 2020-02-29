@@ -1,0 +1,15 @@
+alias: sun brightness
+fields:
+  light_id:
+    description: the entity of the light to set brightness for
+    example: light.bathroom
+sequence:
+  - service: light.turn_on
+    data_template:
+      entity_id: '{{ light_id }}'
+      brightness: >
+        {% if is_state('sun.sun', 'below_horizon') %}
+          20
+        {% else %}
+          255
+        {% endif %}

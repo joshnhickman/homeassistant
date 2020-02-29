@@ -15,15 +15,9 @@
       entity_id: light.bathroom
       state: 'off'
   action:
-    - service: light.turn_on
-      data_template:
-        entity_id: light.bathroom
-        brightness: >
-          {% if is_state('sun.sun', 'below_horizon') %}
-          20
-          {% else %}
-          255
-          {% endif %}
+    - service: script.sun_brightness
+      data:
+        light_id: light.bathroom
 - id: bathroom_light_off
   alias: bathroom light off
   trigger:
