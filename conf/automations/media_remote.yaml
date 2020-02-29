@@ -1,0 +1,47 @@
+- id: remote_music
+  alias: remote music
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bed_button_1
+      to: 'on'
+  condition: &cond
+    - condition: state
+      entity_id: binary_sensor.bed_switch
+      state: 'off'
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.music
+- id: remote_video
+  alias: remote video
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bed_button_2
+      to: 'on'
+  condition: *cond
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.video
+- id: remote_switch
+  alias: remote switch
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bed_button_3
+      to: 'on'
+  condition: *cond
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.switch
+- id: remote_ps4
+  alias: remote ps4
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bed_button_4
+      to: 'on'
+  condition: *cond
+  action:
+    - service: switch.toggle
+      data:
+        entity_id: switch.ps4

@@ -1,0 +1,60 @@
+- id: living_bright_remote
+  alias: living bright remote
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bed_button_1
+      to: 'on'
+  condition: &cond
+    - condition: state
+      entity_id: binary_sensor.bed_switch
+      state: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.living_bright
+- id: living_orange_remote
+  alias: living orange remote
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bed_button_2
+      to: 'on'
+  condition: *cond
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.living_orange
+- id: living_red_remote
+  alias: living red remote
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bed_button_3
+      to: 'on'
+  condition: *cond
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.living_red
+- id: living_blue_remote
+  alias: living blue remote
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bed_button_4
+      to: 'on'
+  condition: *cond
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.living_blue
+- id: living_off_remote
+  alias: living off remote
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bed_button_4
+      to: 'on'
+      for: '00:00:02'
+  condition: *cond
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.living
+

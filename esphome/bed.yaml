@@ -8,10 +8,10 @@ wifi:
   ssid: "Archmore"
   password: !secret archmore_password
   fast_connect: true
-#  manual_ip:
-#    static_ip: 192.168.1.100
-#    gateway: 192.168.1.1
-#    subnet: 255.255.255.0
+  manual_ip:
+    static_ip: 192.168.1.100
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -30,7 +30,20 @@ api:
 ota:
   password: !secret esphome_password
 
-sensor:
-  - platform: wifi_signal
-    name: bed_wifi_signal
-    update_interval: 10s
+binary_sensor:
+  - platform: gpio
+    pin: D1
+    name: bed_switch
+  - platform: gpio
+    pin: D2
+    name: bed_button_1
+  - platform: gpio
+    pin: D5
+    name: bed_button_2
+  - platform: gpio
+    pin: D6
+    name: bed_button_3
+  - platform: gpio
+    pin: D7
+    name: bed_button_4
+
