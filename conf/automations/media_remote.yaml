@@ -2,11 +2,11 @@
   alias: remote music
   trigger:
     - platform: state
-      entity_id: binary_sensor.bed_button_1
+      entity_id: binary_sensor.remote_button_1
       to: 'on'
   condition: &cond
     - condition: state
-      entity_id: binary_sensor.bed_switch
+      entity_id: binary_sensor.remote_switch
       state: 'off'
   action:
     - service: switch.toggle
@@ -16,7 +16,7 @@
   alias: remote video
   trigger:
     - platform: state
-      entity_id: binary_sensor.bed_button_2
+      entity_id: binary_sensor.remote_button_2
       to: 'on'
   condition: *cond
   action:
@@ -27,7 +27,7 @@
   alias: remote switch
   trigger:
     - platform: state
-      entity_id: binary_sensor.bed_button_3
+      entity_id: binary_sensor.remote_button_3
       to: 'on'
   condition: *cond
   action:
@@ -38,7 +38,7 @@
   alias: remote ps4
   trigger:
     - platform: state
-      entity_id: binary_sensor.bed_button_4
+      entity_id: binary_sensor.remote_button_4
       to: 'on'
   condition: *cond
   action:

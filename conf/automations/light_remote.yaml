@@ -2,11 +2,11 @@
   alias: living bright remote
   trigger:
     - platform: state
-      entity_id: binary_sensor.bed_button_1
+      entity_id: binary_sensor.remote_button_1
       to: 'on'
   condition: &cond
     - condition: state
-      entity_id: binary_sensor.bed_switch
+      entity_id: binary_sensor.remote_switch
       state: 'on'
   action:
     - service: scene.turn_on
@@ -16,7 +16,7 @@
   alias: living orange remote
   trigger:
     - platform: state
-      entity_id: binary_sensor.bed_button_2
+      entity_id: binary_sensor.remote_button_2
       to: 'on'
   condition: *cond
   action:
@@ -27,7 +27,7 @@
   alias: living red remote
   trigger:
     - platform: state
-      entity_id: binary_sensor.bed_button_3
+      entity_id: binary_sensor.remote_button_3
       to: 'on'
   condition: *cond
   action:
@@ -38,7 +38,7 @@
   alias: living blue remote
   trigger:
     - platform: state
-      entity_id: binary_sensor.bed_button_4
+      entity_id: binary_sensor.remote_button_4
       to: 'on'
   condition: *cond
   action:
@@ -49,7 +49,7 @@
   alias: living off remote
   trigger:
     - platform: state
-      entity_id: binary_sensor.bed_button_4
+      entity_id: binary_sensor.remote_button_4
       to: 'on'
       for: '00:00:02'
   condition: *cond
