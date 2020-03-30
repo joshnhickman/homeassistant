@@ -30,20 +30,23 @@ api:
 ota:
   password: !secret esphome_password
 
+sensor:
+  - platform: rotary_encoder
+    name: "remote_knob"
+    pin_a: D1
+    pin_b: D2
+
 binary_sensor:
   - platform: gpio
-    pin: D1
+    pin: D0
     name: remote_switch
   - platform: gpio
-    pin: D2
+    pin: D5
     name: remote_button_1
   - platform: gpio
-    pin: D5
+    pin: D6
     name: remote_button_2
   - platform: gpio
-    pin: D6
-    name: remote_button_3
-  - platform: gpio
     pin: D7
-    name: remote_button_4
+    name: remote_button_3
 

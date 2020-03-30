@@ -1,0 +1,9 @@
+- name: awake
+  entities:
+    light.bedroom:
+      state: off
+      transition: 600
+    light.monitors:
+      state: on
+    switch.wake_computer:
+      state: on

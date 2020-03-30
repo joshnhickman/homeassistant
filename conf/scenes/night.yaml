@@ -1,0 +1,18 @@
+- name: read
+  entities:
+    light.bedroom:
+      state: on
+      color_name: red
+      brightness_pct: 5
+    light.underbed:
+      state: on
+      color_name: red
+      brightness_pct: 20
+    light.living:
+      state: off
+    light.kitchen:
+      state: off
+    light.monitors:
+      state: off
+    media_player.projector:
+      state: off

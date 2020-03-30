@@ -1,0 +1,7 @@
+- platform: template
+  sensors:
+    underbed_motion:
+      friendly_name: underbed motion
+      device_class: motion
+      value_template: >-
+        {{ is_state('group.underbed_motion', 'on') }}

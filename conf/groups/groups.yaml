@@ -14,3 +14,9 @@ good_team:
     - person.dwight
     - person.josh
     - person.nathan
+underbed_motion:
+  name: underbed motion
+  icon: mdi:motion-sensor
+  entities:
+    - binary_sensor.bed_motion_left
+

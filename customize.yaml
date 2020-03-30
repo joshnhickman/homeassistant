@@ -28,3 +28,5 @@ person.nathan:
   icon: mdi:alpha-n
 person.chris:
   icon: mdi:alpha-c
+group.bedroom_floor_motion:
+  icon: motion
