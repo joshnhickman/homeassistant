@@ -10,7 +10,7 @@
       state: 'home'
     - condition: time
       before: '05:00:00'
-      after: '21:00:01'
+      after: '21:00:00'
   action:
     - service: input_boolean.turn_on
       data:
@@ -25,9 +25,11 @@
     - condition: state
       entity_id: person.josh
       state: 'home'
-    - condition: time
-      before: '21:00:00'
-      after: '05:00:01'
+    - condition: not
+      conditions: 
+        - condition: time
+          before: '05:00:00'
+          after: '21:00:00'
   action:
     - service: input_boolean.turn_off
       data:
