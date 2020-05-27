@@ -17,6 +17,10 @@
     - platform: state
       entity_id: switch.wake_computer
       to: "on"
+  condition:
+    - condition: state
+      entity_id: boolean_input.night
+      state: "off"
   action:
     - service: light.turn_on
       data:

@@ -1,0 +1,54 @@
+- id: night_on
+  alias: night on
+  trigger:
+    - platform: state
+      entity_id: sensor.pixel_4_charger_type
+      to: 'wireless'
+  condition:
+    - condition: state
+      entity_id: person.josh
+      state: 'home'
+    - condition: time
+      before: '05:00:00'
+      after: '21:00:01'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.night
+- id: night_off
+  alias: night off
+  trigger:
+    - platform: state
+      entity_id: sensor.pixel_4_charger_type
+      from: 'wireless'
+  condition:
+    - condition: state
+      entity_id: person.josh
+      state: 'home'
+    - condition: time
+      before: '21:00:00'
+      after: '05:00:01'
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.night
+
+- id: read_scene
+  alias: read scene
+  trigger: &night_on
+    - platform: state
+      entity_id: input_boolean.night
+      to: 'on'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.read
+- id: awake_scene
+  alias: awake scene
+  trigger: &night_off
+    - platform: state
+      entity_id: input_boolean.night
+      to: 'off'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.awake
+

@@ -7,12 +7,14 @@
     light.underbed:
       state: on
       color_name: red
-      brightness_pct: 20
+      brightness_pct: 40
     light.living:
       state: off
     light.kitchen:
       state: off
     light.monitors:
+      state: off
+    light.hall:
       state: off
     media_player.projector:
       state: off

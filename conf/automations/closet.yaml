@@ -5,9 +5,9 @@
       entity_id: binary_sensor.closet_door
       to: 'on'
   action:
-    - service: light.turn_on
+    - service: script.sun_brightness
       data:
-        entity_id: light.closet
+        light_id: light.closet
 - id: closet_light_off
   alias: closet light off
   trigger:

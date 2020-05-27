@@ -4,10 +4,10 @@
     - platform: state
       entity_id: binary_sensor.underbed_motion
       to: 'on'
-  condition:
+  condition: &night
     - condition: state
-      entity_id: light.desk
-      state: 'off'
+      entity_id: boolean_input.night
+      state: 'on'
   action:
     - service: light.turn_on
       data:
@@ -20,7 +20,8 @@
     - platform: state
       entity_id: binary_sensor.underbed_motion
       to: 'off'
-      for: 00:00:15
+      for: '00:00:15'
+  condition: *night
   action:
     - service: light.turn_off
       data:

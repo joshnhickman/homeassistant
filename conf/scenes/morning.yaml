@@ -3,6 +3,9 @@
     light.bedroom:
       state: off
       transition: 600
+    light.desk:
+      state: on
+      color: orange
     light.monitors:
       state: on
     switch.wake_computer:

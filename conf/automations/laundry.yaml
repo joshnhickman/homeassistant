@@ -12,9 +12,9 @@
       entity_id: binary_sensor.laundry_door
       state: 'on'
   action:
-    - service: light.turn_on
+    - service: scene.sun_brightness
       data:
-        entity_id: light.laundry
+        light_id: light.laundry
 - id: laundry_light_off
   alias: laundry light off
   trigger:
