@@ -1,5 +1,7 @@
 - name: read
   entities:
+    input_boolean.night:
+      state: on
     light.bedroom:
       state: on
       color_name: red

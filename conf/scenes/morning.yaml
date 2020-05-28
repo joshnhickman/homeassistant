@@ -1,5 +1,7 @@
 - name: awake
   entities:
+    input_boolean.night:
+      state: off
     light.bedroom:
       state: off
       transition: 600
