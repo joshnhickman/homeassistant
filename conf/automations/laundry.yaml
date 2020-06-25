@@ -12,7 +12,7 @@
       entity_id: binary_sensor.laundry_door
       state: 'on'
   action:
-    - service: scene.sun_brightness
+    - service: script.sun_brightness
       data:
         light_id: light.laundry
 - id: laundry_light_off
