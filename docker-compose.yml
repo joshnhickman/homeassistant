@@ -2,7 +2,7 @@ version: '3'
 services:
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/raspberrypi4-homeassistant:0.111.4
+    image: homeassistant/raspberrypi4-homeassistant:0.112.2
     volumes:
       - /home/pi/homeassistant:/config
       - /etc/letsencrypt:/letsencrypt

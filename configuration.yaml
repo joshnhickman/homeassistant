@@ -9,7 +9,6 @@ tts:
 
 http:
   server_port: 443
-  base_url: https://homeassistant.joshnhickman.com
   
   # uses certbot for ssl cert https://certbot.eff.org/
   ssl_certificate: /letsencrypt/live/homeassistant.joshnhickman.com/fullchain.pem
