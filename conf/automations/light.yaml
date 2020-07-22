@@ -1,0 +1,15 @@
+- id: blinds_notify
+  alias: blinds notify
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.living_room_luminance
+      above: 100
+      for:
+        minutes: 10
+  condition:
+    condition: sun
+    after: sunrise
+  action:
+    - service: notify.mobile_app_pixel_4
+      data:
+        message: 'Close the blinds!'
