@@ -7,8 +7,9 @@
       for:
         minutes: 10
   condition:
-    condition: sun
-    after: sunrise
+    condition: state
+    entity_id: sun.sun
+    state: 'above_horizon'
   action:
     - service: notify.mobile_app_pixel_4
       data:
