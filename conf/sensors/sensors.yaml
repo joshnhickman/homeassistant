@@ -1,0 +1,9 @@
+- platform: yr
+  name: outside
+  monitored_conditions:
+    - symbol
+    - temperature
+    - humidity
+    - precipitation
+    - windSpeed
+    - cloudiness
