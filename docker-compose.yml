@@ -1,7 +1,23 @@
 version: '3'
 services:
+  mariadb:
+    container_name: mariadb
+    image: linuxserver/mariadb
+    ports:
+      - 3306:3306
+      - 3307:3307
+    volumes:
+      - /home/pi/homeassistant/.db:/config
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+      MYSQL_USER: homeassistant
+      MYSQL_PASSWORD: "${DB_HA_PASSWORD}"
+      MYSQL_DATABASE: homeassistant
+    restart: unless-stopped
   homeassistant:
-    container_name: home-assistant
+    depends_on:
+      - mariadb
+    container_name: homeassistant
     image: homeassistant/raspberrypi4-homeassistant:0.113.0
     volumes:
       - /home/pi/homeassistant:/config
