@@ -45,7 +45,7 @@
       turn_off: *media_off
     ps4:
       friendly_name: ps4
-      icon_template: 'mdi:playstation'
+      icon_template: 'mdi:sony-playstation'
       value_template: >
         {{ is_state('media_player.receiver', 'on') and
            is_state('media_player.projector', 'on') and
