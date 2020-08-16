@@ -8,23 +8,23 @@ tts:
   - platform: google_translate
 
 http:
-  server_port: 443
+  server_port: 8080
   
   # uses certbot for ssl cert https://certbot.eff.org/
-  ssl_certificate: /letsencrypt/live/homeassistant.joshnhickman.com/fullchain.pem
-  ssl_key: /letsencrypt/live/homeassistant.joshnhickman.com/privkey.pem
+  #ssl_certificate: /letsencrypt/live/homeassistant.joshnhickman.com/fullchain.pem
+  #ssl_key: /letsencrypt/live/homeassistant.joshnhickman.com/privkey.pem
 
 # https://www.home-assistant.io/integrations/google_assistant/ 
-google_assistant:
-  project_id: homeassistant-d31d5
-  service_account:
-    private_key: !secret google_private_key
-    client_email: !secret google_client_email
+#google_assistant:
+#  project_id: homeassistant-d31d5
+#  service_account:
+#    private_key: !secret google_private_key
+#    client_email: !secret google_client_email
 #  report_state: true
-  exposed_domains:
-    - switch
-    - light
-    - scene
+#  exposed_domains:
+#    - switch
+#    - light
+#    - scene
 
 wake_on_lan:
 
@@ -49,11 +49,11 @@ recorder:
       - sensor.last_boot
       - sensor.date
 
-device_tracker:
-  - platform: ubus
-    host: 192.168.1.1
-    username: root
-    password: !secret openwrt_password
+#device_tracker:
+#  - platform: ubus
+#    host: 192.168.1.1
+#    username: root
+#    password: !secret openwrt_password
 
 frontend:
   themes:

@@ -1,11 +1,11 @@
 - platform: template
   sensors:
-    pixel_4_charger_type:
-      friendly_name: 'Pixel 4 Charger Type'
+    pixel_charger_type:
+      friendly_name: 'pixel charger type'
       icon_template: >
-        {% if is_state_attr('sensor.pixel_4_battery_state', 'charger_type', 'unknown') %}
+        {% if is_state_attr('sensor.pixel_battery_state', 'charger_type', 'unknown') %}
           mdi:battery-unknown
-        {% elif is_state_attr('sensor.pixel_4_battery_state', 'charger_type', 'wireless') %}
+          {% elif is_state_attr('sensor.pixel_battery_state', 'charger_type', 'wireless') %}
           mdi:battery-charging-wireless
         {% else %}
           mdi:battery-charging
