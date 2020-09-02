@@ -28,3 +28,11 @@
     - light.bed
     - light.mirror
     - light.underbed
+- platform: group
+  name: all
+  entities:
+    - light.closet
+    - light.laundry
+    - light.living
+    - light.bedroom
+    - light.kitchen
