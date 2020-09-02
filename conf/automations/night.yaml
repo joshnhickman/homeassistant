@@ -2,7 +2,7 @@
   alias: night on
   trigger:
     - platform: state
-      entity_id: sensor.pixel_4_charger_type
+      entity_id: sensor.pixel_charger_type
       to: 'wireless'
   condition:
     - condition: state
@@ -19,7 +19,7 @@
   alias: night off
   trigger:
     - platform: state
-      entity_id: sensor.pixel_4_charger_type
+      entity_id: sensor.pixel_charger_type
       from: 'wireless'
   condition:
     - condition: state

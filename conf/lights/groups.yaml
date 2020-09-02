@@ -21,6 +21,7 @@
     - light.screen_right
     - light.screen_left
     - light.cupboard
+    - light.extra
 - platform: group
   name: bedroom
   entities:

@@ -6,6 +6,9 @@
     light.desk:
       state: on
       color: orange
+    light.extra:
+      state: on
+      color: orange
     light.monitors:
       state: on
     switch.wake_computer:

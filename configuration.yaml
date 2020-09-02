@@ -31,6 +31,10 @@ wake_on_lan:
 homeassistant:
   customize: !include customize.yaml
 
+spotify:
+  client_id: !secret spotify_id
+  client_secret: !secret spotify_secret
+
 recorder:
   db_url: !secret db_url
   db_max_retries: 10
