@@ -3,13 +3,9 @@
     light.bedroom:
       state: off
       transition: 600
-    light.desk:
+    light.alldesk:
       state: on
-      color: orange
-    light.extra:
-      state: on
-      color: orange
-    light.monitors:
-      state: on
+      color_name: orange
+      brightness: 255
     switch.wake_computer:
       state: on

@@ -8,6 +8,8 @@
       state: on
       color_name: red
       brightness_pct: 50
+    light.monitor:
+      state: off
     light.living:
       state: off
     light.kitchen:
