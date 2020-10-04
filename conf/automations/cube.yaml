@@ -1,0 +1,102 @@
+- alias: cube shake
+  id: cube_shake
+  trigger:
+    - device_id: 595bab63006a11ebae7b075dbb8c443a
+      domain: zha
+      platform: device
+      type: device_shaken
+      subtype: turn_on
+  action:
+    - choose:
+      default:
+      - service: light.turn_on
+        entity_id: light.alldesk
+
+- alias: cube rotate right
+  id: cube_rotate_right
+  trigger:
+    - device_id: 595bab63006a11ebae7b075dbb8c443a
+      domain: zha
+      platform: device
+      type: device_rotated
+      subtype: right
+  action:
+    - choose:
+      default:
+        - service: light.turn_on
+          entity_id: light.alldesk
+          data:
+            brightness_step_pct: 25
+
+- alias: cube rotate left
+  id: cube_rotate_left
+  trigger:
+    - device_id: 595bab63006a11ebae7b075dbb8c443a
+      domain: zha
+      platform: device
+      type: device_rotated
+      subtype: left
+  action:
+    - choose:
+      default:
+        - service: light.turn_on
+          entity_id: light.alldesk
+          data:
+            brightness_step_pct: -25
+
+- alias: cube knock 1
+  id: cube_knock_1
+  trigger:
+    - device_id: 595bab63006a11ebae7b075dbb8c443a
+      domain: zha
+      platform: device
+      type: device_knocked
+      subtype: face_1
+  action:
+    - choose:
+      default:
+        - service: light.turn_on
+          entity_id: light.alldesk
+          data:
+            flash: short
+
+- alias: cube flip 1
+  id: cube_flip_1
+  trigger:
+    - device_id: 595bab63006a11ebae7b075dbb8c443a
+      domain: zha
+      platform: device
+      type: device_flipped
+      subtype: face_1
+  action:
+    - choose:
+      default:
+        - service: light.turn_on
+          entity_id: light.alldesk
+          data:
+            color_name: orange
+- alias: cube flip 2
+  id: cube_flip_2
+  trigger:
+    - device_id: 595bab63006a11ebae7b075dbb8c443a
+      domain: zha
+      platform: device
+      type: device_flipped
+      subtype: face_2
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.alldesk
+        color_name: red
+- alias: cube flip 6
+  id: cube_flip_6
+  trigger:
+    - device_id: 595bab63006a11ebae7b075dbb8c443a
+      domain: zha
+      platform: device
+      type: device_flipped
+      subtype: face_6
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.alldesk

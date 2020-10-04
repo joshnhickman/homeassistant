@@ -1,0 +1,13 @@
+- platform: min_max
+  name: indoor_temperature
+  type: mean
+  entity_ids:
+#    - sensor.bathroom_door_temperature
+#    - sensor.bathroom_motion_temperature
+#    - sensor.closet_door_temperature
+#    - sensor.extra_motion_temperature
+    - sensor.front_temperature
+#    - sensor.hall_motion_temperature
+    - sensor.laundry_door_temperature
+    - sensor.living_sensor_temperature
+    - sensor.whiskey_cupboard_temperature
