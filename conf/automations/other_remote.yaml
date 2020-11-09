@@ -16,10 +16,8 @@
           - service: light.turn_on
             data:
               entity_id:
-                - light.desk
-                - light.extra
-                - light.cupboard
-              brightness_pct: 20
+                - light.bedroom
+              brightness_pct: 50
               profile: 'relax'
               transition: 3
       default:
@@ -33,7 +31,7 @@
         - service: light.turn_on
           data:
             entity_id: light.underbed
-            brightness_pct: 50
+            brightness_pct: 75
             color: red
             transition: 3
 - id: remote_on_long
@@ -54,9 +52,7 @@
           - service: light.turn_on
             data:
               entity_id:
-                - light.desk
-                - light.extra
-                - light.cupboard
+                - light.bedroom
               brightness_pct: 100
               profile: 'relax'
               transition: 3
@@ -78,13 +74,13 @@
           - service: light.turn_off
             data:
               entity_id:
-                - light.desk
-                - light.extra
-                - light.cupboard
+                - light.bedroom
       default:
         - service: light.turn_off
           data:
-            entity_id: light.bedroom
+            entity_id: 
+              - light.bedroom
+              - light.hall
 - id: remote_off_long
   alias: remote off
   trigger:

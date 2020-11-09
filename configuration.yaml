@@ -44,7 +44,6 @@ recorder:
   include:
     domains:
       - person
-      - binary_sensor  
       - sensor
       - sun
       - media_player
