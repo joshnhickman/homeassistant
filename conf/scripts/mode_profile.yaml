@@ -1,0 +1,21 @@
+alias: mode profile
+fields:
+  light_id:
+    description: the entity id of the light to set profile for
+    example: light.desk
+sequence:
+  - service: light.turn_on
+    data_template:
+      entity_id: '{{ light_id }}'
+      profile: >
+        {% if is_state('input_boolean.night', 'off') %}
+          day
+        {% else %}
+          night
+        {% endif %}
+      transition: >
+        {% if is_state('input_boolean.night', 'off') %}
+          0
+        {% else %}
+          2
+        {% endif %}

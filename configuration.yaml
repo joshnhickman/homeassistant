@@ -52,12 +52,6 @@ recorder:
       - sensor.last_boot
       - sensor.date
 
-#device_tracker:
-#  - platform: ubus
-#    host: 192.168.1.1
-#    username: root
-#    password: !secret openwrt_password
-
 frontend:
   themes:
     !include conf/themes/slate.yaml
@@ -75,4 +69,16 @@ switch: !include_dir_merge_list conf/switches
 input_boolean:
   night:
     icon: mdi:weather-night
+
+input_number:
+  cube_face:
+    min: 1
+    max: 6
+    initial: 1
+
+zha:
+  zigpy_config:
+    network:
+      channel: 24
+      channels: [20, 22, 24]
 

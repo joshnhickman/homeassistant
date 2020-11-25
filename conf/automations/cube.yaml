@@ -1,102 +1,45 @@
-- alias: cube shake
-  id: cube_shake
+- alias: cube face
+  id: cube_face
   trigger:
-    - device_id: 595bab63006a11ebae7b075dbb8c443a
-      domain: zha
-      platform: device
-      type: device_shaken
-      subtype: turn_on
+    - platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: '00:15:8d:00:05:2f:9f:df' # aqara cube
+  condition: >
+    {{ 'flip' == trigger.event.data.command or
+       'knock' == trigger.event.data.command or
+       'slide' == trigger.event.data.command }}
   action:
-    - choose:
-      default:
-      - service: light.turn_on
-        entity_id: light.alldesk
-
-- alias: cube rotate right
-  id: cube_rotate_right
-  trigger:
-    - device_id: 595bab63006a11ebae7b075dbb8c443a
-      domain: zha
-      platform: device
-      type: device_rotated
-      subtype: right
-  action:
-    - choose:
-      default:
-        - service: light.turn_on
-          entity_id: light.alldesk
-          data:
-            brightness_step_pct: 25
-
-- alias: cube rotate left
-  id: cube_rotate_left
-  trigger:
-    - device_id: 595bab63006a11ebae7b075dbb8c443a
-      domain: zha
-      platform: device
-      type: device_rotated
-      subtype: left
-  action:
-    - choose:
-      default:
-        - service: light.turn_on
-          entity_id: light.alldesk
-          data:
-            brightness_step_pct: -25
-
-- alias: cube knock 1
-  id: cube_knock_1
-  trigger:
-    - device_id: 595bab63006a11ebae7b075dbb8c443a
-      domain: zha
-      platform: device
-      type: device_knocked
-      subtype: face_1
-  action:
-    - choose:
-      default:
-        - service: light.turn_on
-          entity_id: light.alldesk
-          data:
-            flash: short
-
-- alias: cube flip 1
-  id: cube_flip_1
-  trigger:
-    - device_id: 595bab63006a11ebae7b075dbb8c443a
-      domain: zha
-      platform: device
-      type: device_flipped
-      subtype: face_1
-  action:
-    - choose:
-      default:
-        - service: light.turn_on
-          entity_id: light.alldesk
-          data:
-            color_name: orange
-- alias: cube flip 2
-  id: cube_flip_2
-  trigger:
-    - device_id: 595bab63006a11ebae7b075dbb8c443a
-      domain: zha
-      platform: device
-      type: device_flipped
-      subtype: face_2
-  action:
-    - service: light.turn_on
+    - service: input_number.set_value
       data:
-        entity_id: light.alldesk
-        color_name: red
-- alias: cube flip 6
-  id: cube_flip_6
+        entity_id: input_number.cube_face
+        value: '{{ trigger.event.data.args.activated_face }}'
+
+
+- alias: cube
+  id: cube
   trigger:
-    - device_id: 595bab63006a11ebae7b075dbb8c443a
-      domain: zha
-      platform: device
-      type: device_flipped
-      subtype: face_6
+    - platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: '00:15:8d:00:05:2f:9f:df' # aqara cube
   action:
-    - service: light.turn_off
-      data:
-        entity_id: light.alldesk
+    - choose:
+        - conditions:
+            - "{{ 'rotate_right' == trigger.event.data.command or 'rotate_left' == trigger.event.data.command }}"
+          sequence:
+            - service: light.turn_on
+              data:
+                entity_id: light.alldesk
+                brightness_step_pct: '{{ trigger.event.data.args.relative_degrees / 3.6 }}' # 360 degrees = 100%
+        - conditions:
+            - "{{ 'shake' == trigger.event.data.command  }}"
+          sequence:
+            - service: light.turn_on
+              data:
+                entity_id: light.alldesk
+                color_name: "{{ ['blue', 'red', 'orange'] |random }}"
+      # default:
+      #   - service: light.toggle
+      #     entity_id: light.alldesk
+

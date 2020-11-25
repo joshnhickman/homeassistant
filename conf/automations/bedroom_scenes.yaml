@@ -2,7 +2,7 @@
   alias: bedroom sunrise 1
   trigger:
     - platform: time
-      at: "05:30"
+      at: "07:30"
   action:
     - service: scene.turn_on
       data:
@@ -11,7 +11,7 @@
   alias: bedroom sunrise 2
   trigger:
     - platform: time
-      at: "06:30"
+      at: "08:30"
   action:
     - service: scene.turn_on
       data:
@@ -38,7 +38,7 @@
   alias: bedroom sunset off
   trigger:
     - platform: time
-      at: "09:00"
+      at: "10:00"
     - platform: time
       at: "23:00"
   action:

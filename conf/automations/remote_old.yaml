@@ -1,0 +1,95 @@
+#- id: living_bright_remote
+#  alias: living bright remote
+#  trigger: &b1
+#    - platform: state
+#      entity_id: binary_sensor.remote_button_1
+#      to: 'on'
+#  condition: &s_on
+#    - condition: state
+#      entity_id: binary_sensor.remote_switch
+#      state: 'on'
+#  action:
+#    - service: scene.turn_on
+#      data:
+#        entity_id: scene.living_bright
+#- id: living_orange_remote
+#  alias: living orange remote
+#  trigger: &b2
+#    - platform: state
+#      entity_id: binary_sensor.remote_button_2
+#      to: 'on'
+#  condition: *s_on
+#  action:
+#    - service: scene.turn_on
+#      data:
+#        entity_id: scene.living_orange
+#- id: living_red_remote
+#  alias: living red remote
+#  trigger: &b3
+#    - platform: state
+#      entity_id: binary_sensor.remote_button_3
+#      to: 'on'
+#  condition: *s_on
+#  action:
+#    - service: scene.turn_on
+#      data:
+#        entity_id: scene.living_red
+#- id: living_blue_remote
+#  alias: living blue remote
+#  trigger: &b4
+#    - platform: state
+#      entity_id: binary_sensor.remote_button_4
+#      to: 'on'
+#  condition: *s_on
+#  action:
+#    - service: scene.turn_on
+#      data:
+#        entity_id: scene.living_blue
+#- id: living_off_remote
+#  alias: living off remote
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.remote_button_4
+#      to: 'on'
+#      for: '00:00:02'
+#  condition: *s_on
+#  action:
+#    - service: light.turn_off
+#      data:
+#        entity_id: light.living
+#
+#- id: remote_music
+#  alias: remote music
+#  trigger: *b1
+#  condition: &s_off
+#    - condition: state
+#      entity_id: binary_sensor.remote_switch
+#      state: 'off'
+#  action:
+#    - service: switch.toggle
+#      data:
+#        entity_id: switch.music
+#- id: remote_video
+#  alias: remote video
+#  trigger: *b2
+#  condition: *s_off
+#  action:
+#    - service: switch.toggle
+#      data:
+#        entity_id: switch.video
+#- id: remote_switch
+#  alias: remote switch
+#  trigger: *b3
+#  condition: *s_off
+#  action:
+#    - service: switch.toggle
+#      data:
+#        entity_id: switch.switch
+#- id: remote_ps4
+#  alias: remote ps4
+#  trigger: *b4
+#  condition: *s_off
+#  action:
+#    - service: switch.toggle
+#      data:
+#        entity_id: switch.ps4
