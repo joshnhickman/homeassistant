@@ -19,4 +19,9 @@ underbed_motion:
   icon: mdi:motion-sensor
   entities:
     - binary_sensor.bed_motion_left
-
+closet:
+  name: closet
+  entities:
+    - binary_sensor.closet_door
+    - light.closet_1
+    - light.closet_2

@@ -1,0 +1,10 @@
+- alias: pixel alarm
+  id: pixel_alarm
+  trigger:
+    platform: time
+    at: sensor.pixel_next_alarm
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.alldesk
+      flash: short

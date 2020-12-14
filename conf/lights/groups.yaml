@@ -1,18 +1,8 @@
-- platform: group
-  name: closet
-  entities:
-    - light.closet_1
-    - light.closet_2
-- platform: group
-  name: laundry
-  entities:
-    - light.laundry_1
-    - light.laundry_2
-- platform: group
-  name: screen
-  entities:
-    - light.screen_right
-    - light.screen_left
+#- platform: group
+#  name: screen
+#  entities:
+#    - light.screen_right
+#    - light.screen_left
 - platform: group
   name: living
   entities:
@@ -36,15 +26,15 @@
     - light.living
     - light.bedroom
     - light.kitchen
-- platform: group
-  name: monitor
-  entities:
-    - light.monitor_left
-    - light.monitor_right
-- platform: group
-  name: alldesk
-  entities:
-    - light.desk
-    - light.monitor_left
-    - light.monitor_right
-    - light.extra
+# - platform: group
+#  name: monitor
+#  entities:
+#    - light.monitor_left
+#    - light.monitor_right
+# - platform: group
+#  name: alldesk
+#  entities:
+#    - light.desk
+#    - light.monitor_left
+#    - light.monitor_right
+#    - light.extra

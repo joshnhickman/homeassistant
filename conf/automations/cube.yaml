@@ -30,14 +30,14 @@
           sequence:
             - service: light.turn_on
               data:
-                entity_id: light.alldesk
+                entity_id: light.desk
                 brightness_step_pct: '{{ trigger.event.data.args.relative_degrees / 3.6 }}' # 360 degrees = 100%
         - conditions:
             - "{{ 'shake' == trigger.event.data.command  }}"
           sequence:
             - service: light.turn_on
               data:
-                entity_id: light.alldesk
+                entity_id: light.desk
                 color_name: "{{ ['blue', 'red', 'orange'] |random }}"
       # default:
       #   - service: light.toggle

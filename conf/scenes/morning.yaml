@@ -3,7 +3,7 @@
     light.bedroom:
       state: off
       transition: 600
-    light.alldesk:
+    light.desk:
       state: on
       color_name: orange
       brightness: 255
