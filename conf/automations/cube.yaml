@@ -39,6 +39,16 @@
               data:
                 entity_id: light.desk
                 color_name: "{{ ['blue', 'red', 'orange'] |random }}"
+        - conditions:
+            condition: or
+            conditions:
+              - "{{ 'knock' == trigger.event.data.command }}"
+              - "{{ 'flip' == trigger.event.data.command }}"
+          sequence:
+            - service: light.turn_on
+              data:
+                entity_id: light.desk
+                color_name: "{{ ['orange', 'red', 'blue', 'green', 'purple', 'yellow'][trigger.event.data.args.activated_face-1] }}"
       # default:
       #   - service: light.toggle
       #     entity_id: light.alldesk
