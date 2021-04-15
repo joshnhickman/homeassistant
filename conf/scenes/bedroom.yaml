@@ -1,38 +1,61 @@
 - name: bedroom sunrise 1
   entities:
-    light.bedroom:
+    light.underbed:
       state: on
       color_name: red
-      brightness_pct: 20
-      transition: 900
+      brightness_pct: 25
 - name: bedroom sunrise 2
   entities:
     light.bedroom:
       state: on
+      color_name: red
+      brightness_pct: 10
+    light.underbed:
+      state: on
       color_name: orange
-      brightness_pct: 40
-      transition: 900
+      brightness_pct: 25
+- name: bedroom sunrise 3
+  entities:
+    light.bedroom:
+      state: on
+      color_name: darkorange
+      brightness_pct: 30
+    light.underbed:
+      state: on
+      color_name: blue
+      brightness_pct: 50
 
 - name: bedroom sunset 1
   entities:
     light.bedroom:
       state: on
       color_name: blue
-      brightness_pct: 50
-      transition: 900
+      brightness_pct: 30
 - name: bedroom sunset 2
   entities:
-    light.bedroom:
+    light.bed:
+      state: on
+      color_name: purple
+      brightness_pct: 15
+- name: bedroom sunset 3
+  entities:
+    light.bed:
       state: on
       color_name: red
-      brightness_pct: 20
-      transition: 900
+      brightness_pct: 5
+    light.mirror:
+      state: on
+      color_name: red
+      brightness_pct: 5
+    light.underbed:
+      state: on
+      color_name: red
+      brightness_pct: 30
 
 - name: bedroom off
   entities:
     light.bedroom:
       state: off
-      transition: 900
 
 - name: bedroom nightlight
   entities:
@@ -40,4 +63,26 @@
       state: on
       color_name: red
       brightness_pct: 20
-      transition: 2
+
+- name: read
+  entities:
+    light.bedroom:
+      state: on
+      color_name: red
+      brightness_pct: 5
+    light.underbed:
+      state: on
+      color_name: red
+      brightness_pct: 20
+    light.monitor:
+      state: off
+    light.living:
+      state: off
+    light.kitchen:
+      state: off
+    light.monitors:
+      state: off
+    light.hall:
+      state: off
+    media_player.projector:
+      state: off

@@ -4,12 +4,27 @@ fields:
     description: the entity of the light to set brightness for
     example: light.bathroom
 sequence:
-  - service: light.turn_on
-    data_template:
-      entity_id: '{{ light_id }}'
-      brightness: >
-        {% if is_state('sun.sun', 'below_horizon') %}
-          20
-        {% else %}
-          255
-        {% endif %}
+  - choose:
+      - conditions:
+          condition: or
+          conditions:
+            - condition: state
+              entity_id: sun.sun
+              state: 'below_horizon'
+            - condition: not
+              conditions:
+                - condition: state
+                  entity_id: input_boolean.night
+                  state: 'off'
+                  for: 00:30:00
+        sequence:
+          - service: light.turn_on
+            data_template:
+              entity_id: '{{ light_id }}'
+              brightness: 20
+    default:
+      - service: light.turn_on
+        data_template:
+          entity_id: '{{ light_id }}'
+          brightness: 255
+          

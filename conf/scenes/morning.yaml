@@ -2,7 +2,6 @@
   entities:
     light.bedroom:
       state: off
-      transition: 600
     light.desk:
       state: on
       color_name: orange

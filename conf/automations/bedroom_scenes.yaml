@@ -2,47 +2,126 @@
   alias: bedroom sunrise 1
   trigger:
     - platform: time
-      at: "07:30"
+      at: "07:00"
+  condition:
+    - &night_on
+      condition: state
+      entity_id: input_boolean.night
+      state: 'on'
   action:
     - service: scene.turn_on
       data:
         entity_id: scene.bedroom_sunrise_1
+        transition: 3600
 - id: bedroom_sunrise_2
   alias: bedroom sunrise 2
   trigger:
     - platform: time
-      at: "08:30"
+      at: "08:00"
+  condition:
+    - *night_on
   action:
     - service: scene.turn_on
       data:
         entity_id: scene.bedroom_sunrise_2
+        transition: 1800
+- id: bedroom_sunrise_3
+  alias: bedroom sunrise 3
+  trigger:
+    - platform: time
+      at: "08:30"
+  condition:
+    - *night_on
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.bedroom_sunrise_3
+        transition: 1800
+
 - id: bedroom_sunset_1
   alias: bedroom sunset 1
   trigger:
     - platform: time
       at: "21:00"
+  condition:
+    - &night_off
+      condition: state
+      entity_id: input_boolean.night
+      state: 'off'
   action:
     - service: scene.turn_on
       data:
         entity_id: scene.bedroom_sunset_1
+        transition: 3600
 - id: bedroom_sunset_2
   alias: bedroom sunset 2
   trigger:
     - platform: time
       at: "22:00"
+  condition:
+    - *night_off
   action:
     - service: scene.turn_on
       data:
         entity_id: scene.bedroom_sunset_2
-- id: bedroom_sunset_off
-  alias: bedroom sunset off
+        transition: 3600
+- id: bedroom_sunset_3
+  alias: bedroom sunset 3
   trigger:
     - platform: time
-      at: "10:00"
-    - platform: time
       at: "23:00"
+  condition:
+    - *night_off
   action:
     - service: scene.turn_on
       data:
-        entity_id: scene.bedroom_off
+        entity_id: scene.bedroom_sunset_3
+        transition: 3600
 
+- id: read_scene
+  alias: read scene
+  trigger: 
+    - platform: state
+      entity_id: input_boolean.night
+      to: 'on'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.read
+        transition: 15
+- id: read_scene_off
+  alias: read scene off
+  trigger:
+    - platform: state
+      entity_id: input_boolean.night
+      to: 'on'
+      for: 00:01:00
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.bedroom
+        transition: 3600
+
+- id: awake_scene
+  alias: awake scene
+  trigger:
+    - platform: state
+      entity_id: input_boolean.night
+      to: 'off'
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.awake
+        transition: 15
+- id: awake_scene_off
+  alias: awake scene off
+  trigger:
+    - platform: state
+      entity_id: input_boolean.night
+      to: 'off'
+      for: 00:05:00
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.bedroom
+        transition: 60
