@@ -5,3 +5,13 @@
       device_class: motion
       value_template: >-
         {{ is_state('group.underbed_motion', 'on') }}
+- platform: template
+  sensors:
+    printing:
+      friendly_name: printing
+      value_template: >
+        {% if states('sensor.outlet_energy')|float > 10 %}
+          on
+        {% else %}
+          off
+        {% endif %}

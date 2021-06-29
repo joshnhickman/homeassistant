@@ -78,8 +78,8 @@
         entity_id: scene.bedroom_sunset_3
         transition: 3600
 
-- id: read_scene
-  alias: read scene
+- id: read_1
+  alias: read 1
   trigger: 
     - platform: state
       entity_id: input_boolean.night
@@ -87,20 +87,32 @@
   action:
     - service: scene.turn_on
       data:
-        entity_id: scene.read
+        entity_id: scene.read_1
         transition: 15
-- id: read_scene_off
-  alias: read scene off
+- id: read_2
+  alias: read 2
   trigger:
     - platform: state
       entity_id: input_boolean.night
       to: 'on'
       for: 00:01:00
   action:
-    - service: light.turn_off
+    - service: scene.turn_on
       data:
-        entity_id: light.bedroom
-        transition: 3600
+        entity_id: scene.read_2
+        transition: 240
+- id: read_scene_off
+  alias: read scene off
+  trigger:
+    - platform: state
+      entity_id: input_boolean.night
+      to: 'on'
+      for: 00:30:00
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.bedroom_off
+        transition: 1800
 
 - id: awake_scene
   alias: awake scene

@@ -37,7 +37,7 @@
       entity_id: binary_sensor.laundry_water
       to: 'on'
   action:
-    - service: notify.mobile_app_pixel_4
+    - service: notify.mobile_app_pixel
       data:
         message: 'Leak detected in laundry room'
         data:

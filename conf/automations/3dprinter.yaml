@@ -1,0 +1,13 @@
+- id: printing_done
+  alias: printing done
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.printing
+      from: 'on'
+      to: 'off'
+  action:
+    - service: notify.mobile_app_pixel
+      data:
+        message: '3D print has finished'
+        data:
+          sticky: 'false'

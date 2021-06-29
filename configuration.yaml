@@ -47,6 +47,7 @@ recorder:
       - sensor
       - sun
       - media_player
+      - weather
   exclude:
     entities:
       - sensor.last_boot

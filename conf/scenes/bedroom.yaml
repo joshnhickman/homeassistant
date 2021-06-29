@@ -64,16 +64,20 @@
       color_name: red
       brightness_pct: 20
 
-- name: read
+- name: read_1
   entities:
-    light.bedroom:
+    light.bed:
+      state: on
+      color_name: red
+      brightness_pct: 5
+    light.mirror:
       state: on
       color_name: red
       brightness_pct: 5
     light.underbed:
       state: on
       color_name: red
-      brightness_pct: 20
+      brightness_pct: 75
     light.monitor:
       state: off
     light.living:
@@ -86,3 +90,13 @@
       state: off
     media_player.projector:
       state: off
+- name: read_2
+  entities:
+    light.bed:
+      state: off
+    light.mirror:
+      state: off
+    light.underbed:
+      state: on
+      color_name: red
+      brightness_pct: 50
