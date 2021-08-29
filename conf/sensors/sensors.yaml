@@ -3,7 +3,6 @@
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
-
 - platform: min_max
   name: indoor_temperature
   type: mean
@@ -17,3 +16,15 @@
     - sensor.laundry_door_temperature
     - sensor.living_sensor_temperature
     - sensor.whiskey_cupboard_temperature
+- platform: template
+  sensors:
+    outdoor_temperature:
+      unique_id: 'outdoortemperature'
+      device_class: 'temperature'
+      value_template: "{{ state_attr('weather.home', 'temperature')  | float | round(2) }}"
+      unit_of_measurement: "°C"
+
+# https://www.home-assistant.io/integrations/statistics
+- platform: statistics
+  name: indoor_temperature_stats
+  entity_id: sensor.indoor_temperature
