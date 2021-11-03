@@ -1,6 +1,12 @@
 - name: awake
   entities:
     light.bedroom:
+      state: on
+      color_name: orange
+      brightness: 100
+- name: awake_2
+  entities:
+    light.bedroom:
       state: off
     light.desk:
       state: on

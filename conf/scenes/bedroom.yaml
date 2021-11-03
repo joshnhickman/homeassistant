@@ -12,13 +12,13 @@
       brightness_pct: 10
     light.underbed:
       state: on
-      color_name: orange
-      brightness_pct: 25
+      color_name: red
+      brightness_pct: 50
 - name: bedroom sunrise 3
   entities:
     light.bedroom:
       state: on
-      color_name: darkorange
+      color_name: red
       brightness_pct: 30
     light.underbed:
       state: on

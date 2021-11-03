@@ -125,13 +125,25 @@
       data:
         entity_id: scene.awake
         transition: 15
+- id: awake_scene_2
+  alias: awake scene 2
+  trigger:
+    - platform: state
+      entity_id: input_boolean.night
+      to: 'off'
+      for: 00:05:00
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.awake_2
+        transition: 600
 - id: awake_scene_off
   alias: awake scene off
   trigger:
     - platform: state
       entity_id: input_boolean.night
       to: 'off'
-      for: 00:05:00
+      for: 00:10:00
   action:
     - service: light.turn_off
       data:
