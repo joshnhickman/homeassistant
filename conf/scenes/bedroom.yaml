@@ -1,56 +1,56 @@
-- name: bedroom sunrise 1
-  entities:
-    light.underbed:
-      state: on
-      color_name: red
-      brightness_pct: 25
-- name: bedroom sunrise 2
-  entities:
-    light.bedroom:
-      state: on
-      color_name: red
-      brightness_pct: 10
-    light.underbed:
-      state: on
-      color_name: red
-      brightness_pct: 50
-- name: bedroom sunrise 3
-  entities:
-    light.bedroom:
-      state: on
-      color_name: red
-      brightness_pct: 30
-    light.underbed:
-      state: on
-      color_name: blue
-      brightness_pct: 50
+# - name: bedroom sunrise 1
+#   entities:
+#     light.underbed:
+#       state: on
+#       color_name: red
+#       brightness_pct: 25
+# - name: bedroom sunrise 2
+#   entities:
+#     light.bedroom:
+#       state: on
+#       color_name: red
+#       brightness_pct: 10
+#     light.underbed:
+#       state: on
+#       color_name: red
+#       brightness_pct: 50
+# - name: bedroom sunrise 3
+#   entities:
+#     light.bedroom:
+#       state: on
+#       color_name: red
+#       brightness_pct: 30
+#     light.underbed:
+#       state: on
+#       color_name: blue
+#       brightness_pct: 50
 
-- name: bedroom sunset 1
-  entities:
-    light.bedroom:
-      state: on
-      color_name: blue
-      brightness_pct: 30
-- name: bedroom sunset 2
-  entities:
-    light.bed:
-      state: on
-      color_name: purple
-      brightness_pct: 15
-- name: bedroom sunset 3
-  entities:
-    light.bed:
-      state: on
-      color_name: red
-      brightness_pct: 5
-    light.mirror:
-      state: on
-      color_name: red
-      brightness_pct: 5
-    light.underbed:
-      state: on
-      color_name: red
-      brightness_pct: 30
+# - name: bedroom sunset 1
+#   entities:
+#     light.bedroom:
+#       state: on
+#       color_name: blue
+#       brightness_pct: 30
+# - name: bedroom sunset 2
+#   entities:
+#     light.bed:
+#       state: on
+#       color_name: purple
+#       brightness_pct: 15
+# - name: bedroom sunset 3
+#   entities:
+#     light.bed:
+#       state: on
+#       color_name: red
+#       brightness_pct: 5
+#     light.mirror:
+#       state: on
+#       color_name: red
+#       brightness_pct: 5
+#     light.underbed:
+#       state: on
+#       color_name: red
+#       brightness_pct: 30
 
 - name: bedroom off
   entities:
@@ -64,39 +64,39 @@
       color_name: red
       brightness_pct: 20
 
-- name: read_1
-  entities:
-    light.bed:
-      state: on
-      color_name: red
-      brightness_pct: 5
-    light.mirror:
-      state: on
-      color_name: red
-      brightness_pct: 5
-    light.underbed:
-      state: on
-      color_name: red
-      brightness_pct: 75
-    light.monitor:
-      state: off
-    light.living:
-      state: off
-    light.kitchen:
-      state: off
-    light.monitors:
-      state: off
-    light.hall:
-      state: off
-    media_player.projector:
-      state: off
-- name: read_2
-  entities:
-    light.bed:
-      state: off
-    light.mirror:
-      state: off
-    light.underbed:
-      state: on
-      color_name: red
-      brightness_pct: 50
+# - name: read_1
+#   entities:
+#     light.bed:
+#       state: on
+#       color_name: red
+#       brightness_pct: 5
+#     light.mirror:
+#       state: on
+#       color_name: red
+#       brightness_pct: 5
+#     light.underbed:
+#       state: on
+#       color_name: red
+#       brightness_pct: 75
+#     light.monitor:
+#       state: off
+#     light.living:
+#       state: off
+#     light.kitchen:
+#       state: off
+#     light.monitors:
+#       state: off
+#     light.hall:
+#       state: off
+#     media_player.projector:
+#       state: off
+# - name: read_2
+#   entities:
+#     light.bed:
+#       state: off
+#     light.mirror:
+#       state: off
+#     light.underbed:
+#       state: on
+#       color_name: red
+#       brightness_pct: 50

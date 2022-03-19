@@ -18,7 +18,7 @@ services:
     depends_on:
       - mariadb
     container_name: homeassistant
-    image: homeassistant/raspberrypi4-64-homeassistant:2021.12.1
+    image: homeassistant/raspberrypi4-64-homeassistant:2022.3.5
     volumes:
       - /home/pi/homeassistant:/config
       - /etc/letsencrypt:/letsencrypt

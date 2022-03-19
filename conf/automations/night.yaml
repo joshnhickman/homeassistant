@@ -22,6 +22,7 @@
     - platform: state
       entity_id: sensor.pixel_charger_type
       from: 'wireless'
+      for: '00:00:15'
   condition:
     - condition: state
       entity_id: person.josh
