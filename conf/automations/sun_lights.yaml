@@ -25,7 +25,7 @@
         entities:
           light.underbed:
             state: 'on'
-            color_name: orange
+            color_name: blue
             brightness_pct: 50
         transition: 1800
     - delay: 1800
@@ -33,14 +33,10 @@
     - service: scene.apply
       data:
         entities:
-          light.bedroom:
-            state: 'on'
-            color_name: red
-            brightness_pct: 30
           light.underbed:
             state: 'on'
-            color_name: blue
-            brightness_pct: 50
+            color_name: orange
+            brightness_pct: 75
         transition: 1800
 
 - id: sunset_lights
@@ -149,7 +145,7 @@
             state: on
             color_name: red
             brightness_pct: 50
-        transition: 240  # 4 minutes
+        transition: 600  # 10 minutes
     - delay: 1740  # 29 minutes
     - service: scene.apply
       data:

@@ -3,6 +3,7 @@ services:
   mariadb:
     container_name: mariadb
     image: linuxserver/mariadb
+    restart: always
     ports:
       - 3306:3306
       - 3307:3307
@@ -13,23 +14,42 @@ services:
       MYSQL_USER: homeassistant
       MYSQL_PASSWORD: "${DB_HA_PASSWORD}"
       MYSQL_DATABASE: homeassistant
-    restart: unless-stopped
+  zwavejs2mqtt:
+    container_name: zwavejs2mqtt
+    image: zwavejs/zwavejs2mqtt
+    restart: always
+    tty: true
+    stop_signal: SIGINT
+    ports:
+      - 8091:8091  # web interface
+      - 3000:3000  # websocket server
+    volumes:
+      - /home/pi/homeassistant/zwave-config:/usr/src/app/store
+    devices:
+      # zwave tty
+      - /dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_6130238D-if00-port0:/dev/zwave
+    environment:
+      TZ: America/Los_Angeles
+      SESSION_SECRET: "${ZWAVE_SESSION_SECRET}"
+      ZWAVEJS_EXTERNAL_CONFIG: /usr/src/app/store/.config-db
   homeassistant:
     depends_on:
       - mariadb
+      - zwavejs2mqtt
     container_name: homeassistant
     image: homeassistant/raspberrypi4-64-homeassistant:2022.3.5
+    restart: always
     volumes:
       - /home/pi/homeassistant:/config
       - /etc/letsencrypt:/letsencrypt
     devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
-      - /dev/ttyUSB1:/dev/ttyUSB1
+      # zigbee tty
+      - /dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_6130238D-if01-port0:/dev/ttyUSB1
     environment:
-      - TZ=America/Los_Angeles
-    restart: always
+      TZ: America/Los_Angeles
     network_mode: host
     logging:
       options:
         max-size: '200k'
         max-file: '5'
+
