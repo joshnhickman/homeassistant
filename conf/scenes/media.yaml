@@ -23,7 +23,7 @@
       state: on
       source: CHROMECAST
       sound_mode: DOLBY DIGITAL
-      volume_level: 0.7
+      volume_level: 0.5
     media_player.projector:
       state: on
 - name: switch
@@ -52,3 +52,4 @@
       sound_mode: DIRECT
     media_player.projector:
       state: on
+
