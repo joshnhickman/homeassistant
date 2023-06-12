@@ -28,3 +28,4 @@
 - platform: statistics
   name: indoor_temperature_stats
   entity_id: sensor.indoor_temperature
+

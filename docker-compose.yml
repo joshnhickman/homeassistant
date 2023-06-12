@@ -16,7 +16,7 @@ services:
       MYSQL_DATABASE: homeassistant
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt
+    image: zwavejs/zwavejs2mqtt:7.0.0
     restart: always
     tty: true
     stop_signal: SIGINT
@@ -37,7 +37,7 @@ services:
       - mariadb
       - zwavejs2mqtt
     container_name: homeassistant
-    image: homeassistant/raspberrypi4-64-homeassistant:2022.5.5
+    image: homeassistant/raspberrypi4-64-homeassistant:2022.9.7
     restart: always
     volumes:
       - /home/pi/homeassistant:/config

@@ -1,36 +1,36 @@
 - alias: bedroom remote
   id: bedroom_remote
   trigger:
-    - platform: event
-      event_type: zha_event
-      event_data:
-        device_ieee: '00:17:88:01:04:f6:2f:c8' # remote
-        args:
-          press_type: press
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_ieee: '00:17:88:01:04:f6:2f:c8' # remote
+      args:
+        press_type: press
   action:
-    - choose:
-        - conditions:
-            - "{{ 'on_press' == trigger.event.data.command }}"
-          sequence:
-            - service: script.mode_profile
-              data:
-                light_id: light.bedroom
-        - conditions:
-            - "{{ 'off_press' == trigger.event.data.command }}"
-          sequence:
-            - service: light.turn_off
-              entity_id: light.bedroom
-        - conditions:
-            - "{{ 'up_press' == trigger.event.data.command }}"
-          sequence:
-            - service: light.turn_on
-              data:
-                entity_id: light.bedroom
-                brightness_step: 50
-        - conditions:
-            - "{{ 'down_press' == trigger.event.data.command }}"
-          sequence:
-            - service: light.turn_on
-              data:
-                entity_id: light.bedroom
-                brightness_step: -50
+  - choose:
+    - conditions:
+      - "{{ 'on_press' == trigger.event.data.command }}"
+      sequence:
+      - service: script.mode_profile
+        data:
+          light_id: light.bedroom
+    - conditions:
+      - "{{ 'off_press' == trigger.event.data.command }}"
+      sequence:
+      - service: light.turn_off
+        entity_id: light.bedroom
+    - conditions:
+      - "{{ 'up_press' == trigger.event.data.command }}"
+      sequence:
+      - service: light.turn_on
+        data:
+          entity_id: light.bedroom
+          brightness_step: 50
+    - conditions:
+      - "{{ 'down_press' == trigger.event.data.command }}"
+      sequence:
+      - service: light.turn_on
+        data:
+          entity_id: light.bedroom
+          brightness_step: -50
