@@ -25,7 +25,7 @@
       unit_of_measurement: "°C"
 
 # https://www.home-assistant.io/integrations/statistics
-- platform: statistics
-  name: indoor_temperature_stats
-  entity_id: sensor.indoor_temperature
+#- platform: statistics
+#  name: indoor_temperature_stats
+#  entity_id: sensor.indoor_temperature
 

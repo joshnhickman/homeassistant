@@ -2,7 +2,7 @@ version: '3'
 services:
   mariadb:
     container_name: mariadb
-    image: linuxserver/mariadb
+    image: linuxserver/mariadb:10.5.17
     restart: always
     ports:
       - 3306:3306
@@ -16,7 +16,7 @@ services:
       MYSQL_DATABASE: homeassistant
   zwavejs2mqtt:
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:7.0.0
+    image: zwavejs/zwave-js-ui:8.14.2
     restart: always
     tty: true
     stop_signal: SIGINT
@@ -37,7 +37,7 @@ services:
       - mariadb
       - zwavejs2mqtt
     container_name: homeassistant
-    image: homeassistant/raspberrypi4-64-homeassistant:2022.9.7
+    image: homeassistant/raspberrypi4-64-homeassistant:2023.6.1
     restart: always
     volumes:
       - /home/pi/homeassistant:/config
